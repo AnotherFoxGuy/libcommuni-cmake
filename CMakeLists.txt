@@ -12,21 +12,23 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 REQUIRED COMPONENTS Core Network)
 
 set(LibCommuni_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/include/")
-set(LibCommuni_SOURCE_DIR  "${CMAKE_CURRENT_LIST_DIR}/src/")
+set(LibCommuni_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/src/")
 
 set(LibCommuni_definitions "IRC_STATIC IRC_NAMESPACE=Communi")
+
+include(cmake/macros.cmake)
 
 add_subdirectory(src/core)
 add_subdirectory(src/model)
 add_subdirectory(src/util)
 
-add_library(LibCommuni)
+add_library(Communi)
 
-target_link_libraries(LibCommuni Core Model Util)
+target_link_libraries(Communi Core Model Util)
 
-add_library(LibCommuni::LibCommuni ALIAS LibCommuni)
+add_library(LibCommuni::LibCommuni ALIAS Communi)
 
-if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-    include(FeatureSummary)
-    feature_summary(WHAT ALL)
-endif ()
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  include(FeatureSummary)
+  feature_summary(WHAT ALL)
+endif()
