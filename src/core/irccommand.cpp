@@ -31,7 +31,6 @@
 #include "ircconnection.h"
 #include "ircmessage.h"
 #include "ircconnection_p.h"
-#include "ircconnection_p.h"
 #include "irccore_p.h"
 #include <QTextCodec>
 #include <QMetaEnum>
@@ -77,7 +76,7 @@ IRC_BEGIN_NAMESPACE
     \code
     class IrcServerCommand : public IrcCommand
     {
-        Q_OBJECT
+        Q_OBJECTT
     public:
         explicit IrcServerCommand(QObject* parent = 0) : IrcCommand(parent)
         {
@@ -927,7 +926,6 @@ QDebug operator<<(QDebug debug, const IrcCommand* command)
 }
 #endif // QT_NO_DEBUG_STREAM
 
-#include "irccommand.moc"
 #include "moc_irccommand.cpp"
 
 IRC_END_NAMESPACE

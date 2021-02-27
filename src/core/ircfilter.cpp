@@ -245,6 +245,4 @@ IRC_BEGIN_NAMESPACE
     \sa IrcConnection::installCommandFilter()
  */
 
-#include "ircfilter.moc"
-
 IRC_END_NAMESPACE
